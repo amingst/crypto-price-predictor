@@ -26,20 +26,24 @@ def to_array3D(data_in, num_days):
     return data_out
 
 
+def normalize_data(data_in):
+    data_init = np.array(data_in)
+    normalized = np.zeros_like(data_init)
+    normalized[:, 1:, :] = data_init[:, 1:, :] / data_init[:, 0:1, :] - 1
+
+    unnormalized = data_init[2400:int(normalized.shape[0] + 1), 0:1, 20]
+
+    return normalized, unnormalized
+
+
 def load_data(filename, num_days):
     raw_data = pd.read_csv(filename, dtype=float).values
-
     raw_data = remove_zeros(raw_data)
 
     data = raw_data.tolist()
-
     data_3D = to_array3D(data, num_days)
 
-    d0 = np.array(data_3D)
-    dr = np.zeros_like(d0)
-    dr[:, 1:, :] = d0[:, 1:, :] / d0[:, 0:1, :] - 1
-
-    unnormalized = d0[2400:int(dr.shape[0] + 1), 0:1, 20]
+    normalized, unnormalized = normalize_data(data_3D)
 
 
 load_data("./data/bitcoin_historical.csv", 50)
