@@ -46,7 +46,7 @@ def to_array3D(data_in, num_days):
     Returns
     -------
     data_out: list
-            An output list that is 3 Dimensional.
+            An output list that is 3D.
 
     """
     data_out = []
