@@ -9,6 +9,18 @@ from keras.layers.recurrent import LSTM
 
 
 def remove_zeros(data_in):
+    """ Takes an input dataframe and removes zero valued indecies.
+    
+    Parameters
+    ----------
+    data_in: pandas dataframe, required
+            The input dataframe.
+    
+    Returns
+    -------
+    data_out: pandas dataframe
+            The original dataframe with the zero valued indecies removed.
+    """
     data_out = data_in
 
     for x in range(0, data_out.shape[0]):
