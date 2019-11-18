@@ -59,6 +59,20 @@ def to_array3D(data_in, num_days):
 
 # TODO: Move to seperate file
 def normalize_data(data_in):
+    """ Takes an input 3D array and normalizes the values.
+
+    Parameters
+    ----------
+    data_in: list, required
+            The input data that is a 3D array.
+    
+    Returns
+    -------
+    normalized: numpy array
+            The normalized data.
+    unnormalized: numpy array
+            The unnormalized values, used for later testing.
+    """
     data_init = np.array(data_in)
     normalized = np.zeros_like(data_init)
     normalized[:, 1:, :] = data_init[:, 1:, :] / data_init[:, 0:1, :] - 1
@@ -70,6 +84,7 @@ def normalize_data(data_in):
 
 # TODO: Move to seperate file
 # TODO: Refactor data splitting
+# TODO: Add docs
 def load_data(filename, num_days):
     # Load raw data and remove zero values
     raw_data = pd.read_csv(filename, dtype=float).values
