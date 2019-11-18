@@ -35,7 +35,11 @@ def load_data(filename, num_days):
 
     data_3D = to_array3D(data, num_days)
 
-    print(data_3D)
+    d0 = np.array(data_3D)
+    dr = np.zeros_like(d0)
+    dr[:, 1:, :] = d0[:, 1:, :] / d0[:, 0:1, :] - 1
+
+    unnormalized = d0[2400:int(dr.shape[0] + 1), 0:1, 20]
 
 
 load_data("./data/bitcoin_historical.csv", 50)
