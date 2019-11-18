@@ -122,6 +122,9 @@ def load_data(filename, num_days):
 
     return x_train, y_train, x_test, y_test, prev_y, unnormalized, w_size
 
-
-x_train, y_train, x_test, y_test, prev_y, unnormalized, w_size = load_data(
+def main():
+    x_train, y_train, x_test, y_test, prev_y, unnormalized, w_size = load_data(
     "./data/bitcoin_historical.csv", 50)
+
+if __name__ == "__main__":
+    main()
