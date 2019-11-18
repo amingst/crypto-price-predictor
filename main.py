@@ -5,6 +5,8 @@ from keras.layers import Bidirectional
 from keras.layers.core import Dense, Activation, Dropout
 from keras.layers.recurrent import LSTM
 
+# TODO: Move to seperate file
+
 
 def remove_zeros(data_in):
     data_out = data_in
@@ -16,6 +18,8 @@ def remove_zeros(data_in):
 
     return data_out
 
+# TODO: Move to seperate file
+
 
 def to_array3D(data_in, num_days):
     data_out = []
@@ -26,6 +30,7 @@ def to_array3D(data_in, num_days):
     return data_out
 
 
+# TODO: Move to seperate file
 def normalize_data(data_in):
     data_init = np.array(data_in)
     normalized = np.zeros_like(data_init)
@@ -36,6 +41,8 @@ def normalize_data(data_in):
     return normalized, unnormalized
 
 
+# TODO: Move to seperate file
+# TODO: Refactor data splitting
 def load_data(filename, num_days):
     # Load raw data and remove zero values
     raw_data = pd.read_csv(filename, dtype=float).values
