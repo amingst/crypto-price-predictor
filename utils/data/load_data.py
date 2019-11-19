@@ -1,8 +1,9 @@
 import numpy as np
 import pandas as pd
 
-from . import Manipulators
-from . import to_array3D
+from .manipulators import remove_zeros
+from .manipulators import normalize_data
+from .to_array3D import to_array3D
 
 
 def load_data(filename, num_days):
@@ -11,14 +12,14 @@ def load_data(filename, num_days):
 
     # Load raw data and remove zero values
     raw_data = pd.read_csv(filename, dtype=float).values
-    raw_data = Manipulators.remove_zeros(raw_data)
+    raw_data = remove_zeros(raw_data)
 
     # Convert the raw data to a list and then to a 3D array
     data = raw_data.tolist()
-    data_3D = to_array3D.to_array3D(data, num_days)
+    data_3D = to_array3D(data, num_days)
 
     # Normalize data and get normalized and unnormalized values
-    normalized, unnormalized = Manipulators.normalize_data(data_3D)
+    normalized, unnormalized = normalize_data(data_3D)
 
     # Split data on the pivot and grab training data
     pivot = round(0.9 * normalized.shape[0])

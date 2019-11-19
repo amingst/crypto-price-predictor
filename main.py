@@ -1,17 +1,17 @@
-from utils.data import load_data
-from model import Model
+from utils.data.load_data import load_data
+from model.Model import Model
 
 
 def main():
     # Load dataset
-    x_train, y_train, x_test, y_test, prev_y, unnormalized, forecast = load_data.load_data(
+    x_train, y_train, x_test, y_test, prev_y, unnormalized, forecast = load_data(
         "./data/bitcoin_historical.csv", 50)
 
     # Calculate the input shape of the data
     input_shape = (forecast, x_train.shape[-1])
 
     # Create and build the model
-    model = Model.Model()
+    model = Model()
     model.build(forecast, 0.2, 'linear', 'mse', 'adam', input_shape)
 
     # Train the model and get the time taken
