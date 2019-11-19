@@ -83,7 +83,7 @@ def main():
     y_predict, y_predict_actual, y_test_actual = model.test(
         x_test, y_test, unnormalized)
 
-    # TODO: Hook up to AWS Sagemakerad
+    # TODO: Hook up to AWS Sagemaker
     # TODO: Plot Predition
     # TODO: Plot Changes
     # TODO: Plot Model Statistics
