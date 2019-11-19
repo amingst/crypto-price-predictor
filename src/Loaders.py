@@ -4,6 +4,7 @@ import pandas as pd
 import Manipulators
 from Array3D import to_array3D
 
+
 def load_data(filename, num_days):
     # TODO: Refactor data splitting
     # TODO: Add docs
@@ -40,7 +41,7 @@ def load_data(filename, num_days):
     prev_y = normalized[int(pivot):, 48, :]
     prev_y = prev_y[:, 20]
 
-    # Get the window size
-    w_size = num_days - 1
+    # Get the forecast window
+    forecast = num_days - 1
 
-    return x_train, y_train, x_test, y_test, prev_y, unnormalized, w_size
+    return x_train, y_train, x_test, y_test, prev_y, unnormalized, forecast
