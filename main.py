@@ -1,4 +1,4 @@
-from Loaders import load_data
+from utils import load_data
 
 import time
 import math
@@ -65,8 +65,8 @@ class Model:
 
 def main():
     # Load dataset
-    x_train, y_train, x_test, y_test, prev_y, unnormalized, forecast = load_data(
-        "../data/bitcoin_historical.csv", 50)
+    x_train, y_train, x_test, y_test, prev_y, unnormalized, forecast = load_data.load_data(
+        "./data/bitcoin_historical.csv", 50)
 
     # Calculate the input shape of the data
     input_shape = (forecast, x_train.shape[-1])

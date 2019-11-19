@@ -1,8 +1,8 @@
 import numpy as np
 import pandas as pd
 
-import Manipulators
-from Array3D import to_array3D
+from . import Manipulators
+from . import to_array3D
 
 
 def load_data(filename, num_days):
@@ -15,7 +15,7 @@ def load_data(filename, num_days):
 
     # Convert the raw data to a list and then to a 3D array
     data = raw_data.tolist()
-    data_3D = to_array3D(data, num_days)
+    data_3D = to_array3D.to_array3D(data, num_days)
 
     # Normalize data and get normalized and unnormalized values
     normalized, unnormalized = Manipulators.normalize_data(data_3D)
