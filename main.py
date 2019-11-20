@@ -15,7 +15,7 @@ def main():
     model.build(forecast, 0.2, 'linear', 'mse', 'adam', input_shape)
 
     # Train the model and get the time taken
-    model.train(x_train, y_train, 1024, 5, .05)
+    model.train(x_train, y_train, 1024, 10, .05)
     model.train_time()
 
     # Make predictions

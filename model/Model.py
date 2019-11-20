@@ -31,7 +31,8 @@ class Model:
 
         self.model.add(Activation(activation))
 
-        self.model.compile(loss=loss, optimizer=optimizer)
+        self.model.compile(loss=loss, optimizer=optimizer,
+                           metrics=['accuracy'])
 
     def train(self, x_train, y_train, batch_size, epochs, validation):
         # TODO: Refactor time_to_train
@@ -54,8 +55,8 @@ class Model:
             y_test_actual[i] = (y+1)*unnormalized[i]
             y_predict_actual[i] = (prediction+1)*unnormalized[i]
 
-        print(y_predict)
-        print(y_test_actual)
-        print(y_predict_actual)
+        # print(y_predict)
+        # print(y_test_actual)
+        # print(y_predict_actual)
 
         return y_predict, y_predict_actual, y_test_actual
